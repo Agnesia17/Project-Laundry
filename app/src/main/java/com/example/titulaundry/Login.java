@@ -60,29 +60,6 @@ public class Login extends AppCompatActivity {
     public void onBackPressed() {
         this.finishAffinity();
         finishAndRemoveTask();
-//        Log.d("CDA", "onBackPressed Called");
-//        Intent setIntent = new Intent(Intent.ACTION_MAIN);
-//        setIntent.addCategory(Intent.CATEGORY_HOME);
-//        setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        setIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        startActivity(setIntent);
-//        finish();
-//        Intent intent = new Intent(this, Login.class);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-//        startActivity(intent);
-//       this.finish();
-    // MyRootActivity should be the name of your root (launcher) activity
-//        IntentFilter intentFilter = new IntentFilter();
-//        intentFilter.addAction("com.package.ACTION_LOGOUT");
-//        registerReceiver(new BroadcastReceiver() {
-//            @Override
-//            public void onReceive(Context context, Intent intent) {
-//                Log.d("onReceive","Logout in progress");
-//                //At this point you should start the login activity and finish this one
-//                finish();
-//            }
-//        }, intentFilter);
-    }
 
     public void lupaPassword(){
         ToLupaPw = (TextView) findViewById(R.id.lupaPassword);
@@ -114,7 +91,6 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-
     public void LoginToConfirm(){
         getEmail = (EditText) findViewById(R.id.getEmail);
         getPassword = (EditText) findViewById(R.id.getPassword);
@@ -125,13 +101,9 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 String userCheck = getEmail.getText().toString();
                 String passCheck = getPassword.getText().toString();
-                //nanti hapus
-//                Intent intent = new Intent(getApplicationContext(), MainMenu.class);
-//                startActivity(intent);
-                //end
-
+               
                 if (userCheck.equals("") || passCheck.equals("")){
-//                    Toast.makeText(Login.this,"Mohon Isi Semua Data",Toast.LENGTH_LONG).show();
+
                     Alert_App.alertBro(Login.this,"Mohon Isi Semua Data");
                 } else {
                     apiInterface = AppClient.getClient().create(ApiInterface.class);
@@ -163,8 +135,6 @@ public class Login extends AppCompatActivity {
 
                             } else {
 
-//                                System.out.println("tesss  = "+response.body().getData());
-//                                Toast.makeText(Login.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                 Alert_App.alertBro(Login.this,response.body().getMessage());
                             }
                         }
@@ -174,9 +144,6 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
-
-
-
             }
 
             }
